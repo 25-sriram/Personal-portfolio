@@ -165,6 +165,27 @@
     <script>
         lucide.createIcons();
     </script>
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            const menuToggle = document.getElementById('mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            const navItems = document.querySelectorAll('.nav-links a');
+
+            // Force Active State for current page
+            const currentPath = window.location.pathname;
+            navItems.forEach(link => {
+                link.classList.remove('active');
+                if (currentPath.includes('certifications.html') && link.getAttribute('href').includes('certifications.html')) {
+                    link.classList.add('active');
+                }
+            });
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2025 <span class="green-text">Sri Ram Rajendran</span> Portfolio</p>

@@ -212,89 +212,131 @@ body {
     }
 }
 
+/* --- PROPER MOBILE VIEW FOR INDEX.HTML (768px and below) --- */
 @media (max-width: 768px) {
-
-    /* --- Hero Section Mobile --- */
+    
+    /* 1. Hero Section Layout */
     .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding-top: 100px;
-        gap: 40px;
+        flex-direction: column-reverse !important;
+        text-align: center !important;
+        padding: 100px 5% 40px !important; /* Added top padding for fixed nav */
+        gap: 30px !important;
+        min-height: auto !important;
     }
 
     .hero-content h1 {
-        font-size: 2.8rem;
+        font-size: 2.8rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 1rem !important;
     }
 
-    .role-item,
-    .degree-container {
-        justify-content: center;
+    /* Centers all text and icons in hero */
+    .role-item, .degree-container, .hero-btns {
+        justify-content: center !important;
+        text-align: center !important;
     }
 
+    /* 2. Optimized Hero Image Frame */
     .image-frame {
-        width: 280px;
-        height: 280px;
+        width: 250px !important; /* Smaller size for mobile screens */
+        height: 250px !important;
+        margin: 0 auto !important;
+        border-width: 2px !important;
     }
 
-    .hero-btns {
-        justify-content: center;
+    .image-outer-glow {
+        padding: 10px !important;
     }
 
-    /* --- About Section Mobile --- */
+    /* 3. About Section Adjustments */
+    .about-section {
+        padding: 60px 5% !important;
+    }
+
     .about-card {
-        padding: 30px 20px;
+        padding: 30px 20px !important;
+        border-radius: 15px !important;
     }
 
     .about-title-main {
-        font-size: 2.2rem;
+        font-size: 2.2rem !important;
     }
 
-    /* --- Education Timeline Mobile --- */
+    /* 4. Timeline & Education (Fixed alignment from your screenshot) */
     .timeline-line {
-        left: 20px;
-        /* Moves line to the left */
-        transform: none;
+        left: 20px !important; /* Moves line to the far left */
+        transform: none !important;
     }
 
     .timeline-dot {
-        left: 20px;
-        transform: translateX(-50%);
+        left: 20px !important;
+        transform: translateX(-50%) !important;
     }
 
     .education-card {
-        width: calc(100% - 60px) !important;
+        width: calc(100% - 60px) !important; /* Gives cards more breathing room */
         margin-left: 60px !important;
         margin-right: 0 !important;
+        padding: 20px !important;
     }
 
-    /* ... keep your existing timeline-line and education-card code ... */
-
-    /* Force the year and score tags to stay side-by-side */
+    /* Force Year and Score tags side-by-side as requested */
     .edu-meta {
-        display: flex !important;
         flex-direction: row !important;
-        /* Prevents vertical stacking */
+        flex-wrap: nowrap !important;
+        gap: 8px !important;
         justify-content: flex-start !important;
+    }
+
+    .year, .score-tag {
+        font-size: 0.75rem !important;
+        padding: 4px 8px !important;
+        white-space: nowrap !important;
+    }
+
+    /* 5. Experience Card Fixes */
+    .experience-card {
+        padding: 25px 20px !important;
+    }
+
+    .exp-header {
+        flex-direction: column !important;
+        gap: 15px !important;
+        align-items: flex-start !important;
+    }
+
+    .exp-date {
+        align-self: flex-start !important;
+        font-size: 0.75rem !important;
+    }
+
+    /* 6. Organizations Grid Fix */
+    .org-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .org-card {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 20px !important;
+    }
+
+    .org-icon-container {
+        margin: 0 auto 15px !important;
+    }
+
+    .org-header-row {
+        flex-direction: column !important;
         align-items: center !important;
         gap: 10px !important;
-        flex-wrap: nowrap !important;
-        /* Forces them to stay on one line */
-        margin-top: 15px !important;
     }
 
-    /* Ensure the tags themselves don't grow too large and push each other off */
-    .year,
-    .score-tag {
-        font-size: 0.8rem !important;
-        /* Slightly smaller for mobile fit */
-        padding: 5px 10px !important;
-        white-space: nowrap !important;
-        /* Keeps text on one line inside the tag */
-        width: auto !important;
-        /* Prevents tags from taking full width */
+    /* 7. Footer Text Scaling */
+    .footer-content p {
+        font-size: 0.9rem !important;
     }
 }
-
 .hero {
     display: flex;
     align-items: center;
@@ -566,16 +608,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .about-card {
-        padding: 30px;
-    }
 
-    .about-section {
-        padding: 60px 5%;
-    }
-}
 
 /* Education Section Layout */
 .education-section {
@@ -714,22 +747,7 @@ body {
     box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
 }
 
-/* Responsive Mobile Layout */
-@media (max-width: 768px) {
-    .timeline-line {
-        left: 20px;
-    }
 
-    .timeline-dot {
-        left: 20px;
-        transform: none;
-    }
-
-    .education-card {
-        width: calc(100% - 60px);
-        margin-left: 60px !important;
-    }
-}
 
 /* Projects Page Specifics */
 .projects-page-container {
@@ -1389,27 +1407,6 @@ body {
     line-height: 1.6;
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .org-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .org-card {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .org-icon-container {
-        margin: 0 auto 15px;
-    }
-
-    .org-header-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-    }
-}
 
 
 /* --- Footer Styles --- */
@@ -1551,14 +1548,3 @@ main, section {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .exp-header {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .experience-card {
-        padding: 25px;
-    }
-}
