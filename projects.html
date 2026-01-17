@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Sri Ram Rajendran</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span class="sparkle">★</span> Sri Ram Rajendran
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i data-lucide="menu" id="menu-icon"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#education">Education</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#organizations">Organizations</a></li>
+            <li><a href="projects.html#Projects" class="active">Projects</a></li>
+            <li><a href="skills.html#skills">Skills</a></li>
+            <li><a href="certifications.html#certifications" class="active">Certifications</a></li>
+            <li><a href="contact.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="projects-page-container">
+        <div class="section-header">
+            <h1 class="about-title-main green-text">My Projects</h1>
+            <div class="title-underline"></div>
+            <p class="subtitle">Real-world applications built with modern technologies</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="static/camila.png" alt="Real-Time Chat App">
+                    <span class="category-tag">Full Stack</span>
+                </div>
+                <div class="project-info">
+                    <h3>Camila Expense Tracker</h3>
+                    <p>Developed a full-stack, responsive expense tracker by building a scalable Node.js and MongoDB
+                        backend integrated with a seamless HTML, CSS, and JavaScript frontend to securely manage user
+                        data.</p>
+                    <strong>Tech stack : </strong>
+                    <p>Node.js, MongoDB, HTML, CSS, JavaScript</p>
+                    <div class="project-btns">
+                        <button class="btn-small" onclick="window.location.href='https://camila1-pi.vercel.app/'">Live
+                            Demo</button>
+                        <button class="btn-small outline"
+                            onclick="window.location.href='https://github.com/25-sriram/Camila-e-tracker'">Source
+                            Code</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+
+            const menuToggle = document.getElementById('mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            const navItems = document.querySelectorAll('.nav-links a');
+
+            // --- NEW: Manual Page Highlight Logic ---
+            const currentPath = window.location.pathname;
+
+            navItems.forEach(link => {
+                // Remove 'active' from everything first
+                link.classList.remove('active');
+
+                // Check if we are on projects.html
+                if (currentPath.includes('projects.html') && link.getAttribute('href').includes('projects.html')) {
+                    link.classList.add('active');
+                }
+                // Check if we are on skills.html
+                else if (currentPath.includes('skills.html') && link.getAttribute('href').includes('skills.html')) {
+                    link.classList.add('active');
+                }
+            });
+
+            // 1. Mobile Toggle Logic
+            menuToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                navLinks.classList.toggle('active');
+            });
+
+            // 2. Close Drawer on Link Click
+            navItems.forEach(link => {
+                link.addEventListener('click', function () {
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 <span class="green-text">Sri Ram Rajendran</span> Portfolio</p>
+        </div>
+    </footer>
+</body>
+
+</html>

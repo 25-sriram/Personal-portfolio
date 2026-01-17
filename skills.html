@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills | Sri Ram Rajendran</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span class="sparkle">★</span> Sri Ram Rajendran
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i data-lucide="menu" id="menu-icon"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#education">Education</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#organizations">Organizations</a></li>
+            <li><a href="projects.html#Projects">Projects</a></li>
+            <li><a href="skills.html#skills" class="active">Skills</a></li>
+            <li><a href="certifications.html#certifications" class="active">Certifications</a></li>
+            <li><a href="contact.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="skills-page-container">
+        <div class="section-header">
+            <h1 class="about-title-main green-text">My Technical Skills</h1>
+            <div class="title-underline"></div>
+            <p class="subtitle">A comprehensive overview of my technical expertise and toolset</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="card-icon-box">
+                    <i data-lucide="layout" class="skill-icon"></i>
+                </div>
+                <h3>Frontend</h3>
+                <ul class="skill-list">
+                    <li><i data-lucide="check-circle-2"></i> HTML</li>
+                    <li><i data-lucide="check-circle-2"></i> CSS</li>
+                    <li><i data-lucide="check-circle-2"></i> JavaScript</li>
+                    <li><i data-lucide="check-circle-2"></i> React Js</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <div class="card-icon-box">
+                    <i data-lucide="server" class="skill-icon"></i>
+                </div>
+                <h3>Backend</h3>
+                <ul class="skill-list">
+                    <li><i data-lucide="check-circle-2"></i> Node Js</li>
+                    <li><i data-lucide="check-circle-2"></i> Flask</li>
+                    <li><i data-lucide="check-circle-2"></i> Python</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <div class="card-icon-box">
+                    <i data-lucide="database" class="skill-icon"></i>
+                </div>
+                <h3>Database</h3>
+                <ul class="skill-list">
+                    <li><i data-lucide="check-circle-2"></i> My Sql</li>
+                    <li><i data-lucide="check-circle-2"></i> Mongo DB</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <div class="card-icon-box">
+                    <i data-lucide="code-2" class="skill-icon"></i>
+                </div>
+                <h3>Programming Languages</h3>
+                <ul class="skill-list">
+                    <li><i data-lucide="check-circle-2"></i> C </li>
+                    <li><i data-lucide="check-circle-2"></i> C++</li>
+                    <li><i data-lucide="check-circle-2"></i> Python</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <div class="card-icon-box">
+                    <i data-lucide="brain-circuit" class="skill-icon"></i>
+                </div>
+                <h3>Others</h3>
+                <ul class="skill-list">
+                    <li><i data-lucide="check-circle-2"></i>Canva</li>
+                    <li><i data-lucide="check-circle-2"></i>Leadership</li>
+                    <li><i data-lucide="check-circle-2"></i>Analytical Thinking</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+        // Include your mobile toggle script here
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+
+            const menuToggle = document.getElementById('mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            const navItems = document.querySelectorAll('.nav-links a');
+
+            // --- NEW: Manual Page Highlight Logic ---
+            const currentPath = window.location.pathname;
+
+            navItems.forEach(link => {
+                // Remove 'active' from everything first
+                link.classList.remove('active');
+
+                // Check if we are on projects.html
+                if (currentPath.includes('projects.html') && link.getAttribute('href').includes('projects.html')) {
+                    link.classList.add('active');
+                }
+                // Check if we are on skills.html
+                else if (currentPath.includes('skills.html') && link.getAttribute('href').includes('skills.html')) {
+                    link.classList.add('active');
+                }
+            });
+
+            // 1. Mobile Toggle Logic
+            menuToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                navLinks.classList.toggle('active');
+            });
+
+            // 2. Close Drawer on Link Click
+            navItems.forEach(link => {
+                link.addEventListener('click', function () {
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 <span class="green-text">Sri Ram Rajendran</span> Portfolio</p>
+        </div>
+    </footer>
+</body>
+
+</html>
