@@ -8,7 +8,26 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+<style>
+    @media (max-width: 768px) {
+    .nav-links a.active {
+        background: linear-gradient(135deg, #059669, #10b981) !important;
+        color: white !important;
+        padding-left: 20px !important;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90% !important;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
 
+    .nav-links a.active::after {
+        content: '›';
+        font-size: 1.8rem;
+    }
+}
+</style>
 <body>
 
     <nav class="navbar">
@@ -27,7 +46,7 @@
             <li><a href="projects.html">Projects</a></li>
             <li><a href="skills.html">Skills</a></li>
             <li><a href="certifications.html">Certifications</a></li>
-            <li><a href="contact.html#contact" class="active">Contact</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
     </nav>
 
@@ -115,14 +134,14 @@
                     </div>
                 </div>
             </a>
-            <a href="https://twitter.com/yourusername" target="_blank" class="contact-card">
+            <a href="https://x.com/sriyas_2013?s=21" target="_blank" class="contact-card">
                 <div class="card-content">
                     <div class="platform-header">
                         <i data-lucide="twitter" class="platform-icon"></i>
                         <span class="platform-name">Twitter (X)</span>
                         <i data-lucide="external-link" class="link-arrow"></i>
                     </div>
-                    <p class="handle">@sriramr</p>
+                    <p class="handle">@sriyas_2013</p>
                     <p class="status-text">Tech updates & thoughts</p>
                     <div class="status-indicator">
                         <span class="dot"></span>
@@ -165,24 +184,32 @@
     <script>
         lucide.createIcons();
     </script>
-        <script>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             const menuToggle = document.getElementById('mobile-menu');
             const navLinks = document.querySelector('.nav-links');
             const navItems = document.querySelectorAll('.nav-links a');
 
-            // Force Active State for current page
+            // --- FIX: Manual Page Highlight for Contact ---
             const currentPath = window.location.pathname;
             navItems.forEach(link => {
                 link.classList.remove('active');
-                if (currentPath.includes('certifications.html') && link.getAttribute('href').includes('certifications.html')) {
+                // Check if the current URL contains 'contact.html'
+                if (currentPath.includes('contact.html') && link.getAttribute('href').includes('contact.html')) {
                     link.classList.add('active');
                 }
             });
 
             menuToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
+            });
+
+            // Close menu when a link is clicked
+            navItems.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
             });
         });
     </script>
